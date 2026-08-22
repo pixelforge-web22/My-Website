@@ -22,6 +22,18 @@ document.getElementById('navLinks').addEventListener('click', (e) => {
   }
 });
 
+// Netlify injects its "Powered by Netlify" drawer after load — keep it hidden.
+// (styles.css hides the known selectors; this catches late/renamed injections.)
+const hideNetlifyDrawer = () => {
+  document.querySelectorAll('[id*="netlify" i], [class*="netlify" i]').forEach((el) => {
+    el.style.setProperty('display', 'none', 'important');
+  });
+};
+hideNetlifyDrawer();
+const netlifyWatcher = new MutationObserver(hideNetlifyDrawer);
+netlifyWatcher.observe(document.documentElement, { childList: true, subtree: true });
+setTimeout(() => netlifyWatcher.disconnect(), 15000);
+
 // Scroll-reveal animation
 const revealEls = document.querySelectorAll('.reveal');
 if ('IntersectionObserver' in window) {
