@@ -167,11 +167,15 @@ iframe[src*="netlify.com/badge"]{
 .nav-inner{
   max-width:var(--container);
   margin:0 auto;
-  display:flex; align-items:center; justify-content:space-between;
+  /* logo | centred links | right-aligned CTA — keeps whitespace balanced
+     instead of pooling in one gap between the links and the button. */
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  align-items:center;
   gap:24px;
 }
 .nav-logo-img{ height:30px; width:auto; }
-.nav-links{ display:flex; gap:36px; }
+.nav-links{ display:flex; justify-content:center; gap:40px; }
 .nav-links a{
   font-size:1.02rem; font-weight:600; color:var(--text-primary);
   position:relative; padding:4px 0;
@@ -516,6 +520,7 @@ iframe[src*="netlify.com/badge"]{
 }
 
 @media (max-width: 700px){
+  .nav-inner{ display:flex; justify-content:space-between; }
   .nav-links, .nav-cta{ display:none; }
   .nav-toggle{ display:flex; }
 
