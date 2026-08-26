@@ -491,7 +491,8 @@ iframe[src*="netlify.com/badge"]{
   border-top:1px solid rgba(240,148,16,0.14);
 }
 .footer-inner{ display:flex; flex-direction:column; align-items:center; gap:16px; }
-.footer-logo{ height:34px; width:auto; opacity:0.95; }
+.footer-logo{ display:block; height:60px; width:auto; opacity:0.95; }
+.footer-logo img{display:block; height:60px; width:auto;}
 .footer-tagline{ color:var(--text-muted); font-size:0.9rem; letter-spacing:0.03em; }
 .footer .social-row{ margin:8px 0; }
 .footer-copy{ color:rgba(199,168,150,0.6); font-size:0.8rem; margin-top:12px; }
